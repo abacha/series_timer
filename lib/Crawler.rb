@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'net/http'
-require 'pry'
 
 class Crawler
 

@@ -1,4 +1,4 @@
-require 'lib/Crawler'
+require_relative 'Crawler'
 require 'date'
 
 class SeriesManager
