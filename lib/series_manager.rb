@@ -1,4 +1,4 @@
-require_relative 'Crawler'
+require_relative 'crawler'
 require 'date'
 
 class SeriesManager

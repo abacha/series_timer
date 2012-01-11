@@ -1,4 +1,4 @@
-require 'lib/SeriesManager'
+require 'lib/series_manager'
 require 'pry'
 manager = SeriesManager.new
 p manager.get_next_episode("The Good Wife")
