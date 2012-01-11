@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'pry'
 require 'net/http'
-require 'date'
 
 class Crawler
 
@@ -32,16 +31,3 @@ class Crawler
   end
 
 end
-
-
-
-c = Crawler.new
-episodes = c.parse_episodes("good_wife")
-next_episode = []
-episodes.reverse_each { |episode|
-  date_test = Date.parse(episode[1])
-  if date_test > Date.today && (next_episode == [] || date_test > next_episode[1])
-    next_episode = [ episode[0], date_test ]
-  end
-}
-p next_episode
