@@ -19,7 +19,7 @@ class Crawler
 
   private
   def get_cache_file(serie)
-    "cache/" + serie + ".cache"
+    "../cache/" + serie + ".cache"
   end
 
   def web(serie)
