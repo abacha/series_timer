@@ -1,18 +1,12 @@
 require 'rubygems'
 require 'net/http'
+require 'pry'
 
 class Crawler
 
   def initialize
-    @servers = {
-      "good_wife"           => [ "en.wikipedia.org", 
-                                 "/wiki/List_of_The_Good_Wife_episodes" ],
-      "two_and_a_half_men"  => [ "en.wikipedia.org", 
-                                 "/wiki/List_of_Two_and_a_Half_Men_episodes" ]
-    }
-
     @regex_episodes = 
-      Regexp.new(/<td class="summary" [^>]+>.*?<b>(.*?)<\/b>.*?<span[^>]+>([0-9-]+)<\/span>/m)
+      Regexp.new(/<td class="summary" [^>]+>(?:"<b>)?(?:<a [^>]+>)?([\w\s]*)(?:<\/a>)?(?:<\/b>")?.*?<span[^>]+>([0-9-]+)<\/span>/m)
   end
 
   def get(serie)
@@ -20,6 +14,7 @@ class Crawler
   end
 
   def parse_episodes(serie)
+    serie.gsub!(" ", "_")
     get(serie).scan(@regex_episodes)
   end
 
@@ -29,7 +24,8 @@ class Crawler
   end
 
   def web(serie)
-    raw = Net::HTTP.get(@servers[serie][0], @servers[serie][1])
+    raw = Net::HTTP.get("en.wikipedia.org", 
+                        "/wiki/List_of_" + serie + "_episodes")
     File.open(get_cache_file(serie), 'w') { |f| f.write(raw) }
     raw
   end

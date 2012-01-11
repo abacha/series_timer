@@ -9,7 +9,7 @@ class SeriesManager
     next_episode  = []
 
     episodes.reverse_each do |episode|
-      break if Date.parse(episode[1]) < Date.today
+      break if Date.parse(episode[1]) < Date.today && !next_episode.empty?
       next_episode = episode
     end
     next_episode
