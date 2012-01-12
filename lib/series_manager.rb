@@ -8,11 +8,10 @@ module SeriesManager
       episodes      = Crawler.parse_episodes(serie)
       next_episode  = Episode.new
 
-      episodes.reverse_each do |episode|
-        break if episode.date < Date.today && !next_episode.empty?
-        next_episode = episode
+      while episode = episodes.pop 
+        next_episode = episode if episode.date > Date.today
       end
-      next_episode.date >= Date.today ? next_episode : nil
+      !next_episode.empty? && next_episode.date >= Date.today ? next_episode : nil
     end
 
     def get_countdown_next_episode(serie)
