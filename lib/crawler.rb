@@ -1,6 +1,3 @@
-require 'rubygems'
-require 'net/http'
-
 class Crawler
 
   REGEX_EPISODES = 

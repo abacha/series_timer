@@ -1,6 +1,4 @@
 require_relative 'crawler'
-require 'date'
-require 'pry'
 
 class SeriesManager
 
