@@ -3,12 +3,13 @@ require_relative 'episode'
 module Crawler
 
   class << self
+    
     REGEX_EPISODES = 
       Regexp.new(/<td>(\d+)<\/td>.*?<td class="summary" [^>]+>(?:"<b>)?(?:<a [^>]+>)?([\w\s]*)(?:<\/a>)?(?:<\/b>")?.*?<span[^>]+>([0-9-]+)<\/span>/m)
 
     def parse_episodes(serie)
       renamed_serie = serie.gsub(" ", "_")
-      episodes = []
+      episodes      = []
       get(renamed_serie).scan(REGEX_EPISODES) do |episode| 
         episodes << Episode.new(serie, *episode) 
       end
