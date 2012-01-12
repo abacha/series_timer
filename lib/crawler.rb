@@ -19,7 +19,8 @@ class Crawler
 
   private
   def get_cache_file(serie)
-    "../cache/" + serie + ".cache"
+    Dir.mkdir("/tmp/cache") if !File.directory?("/tmp/cache/")
+    "/tmp/cache/" + serie + ".cache"
   end
 
   def web(serie)
