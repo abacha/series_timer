@@ -1,6 +1,5 @@
 require 'date'
 require 'pry'
-require 'rubygems'
 require 'net/http'
 require_relative '../lib/series_manager'
 
