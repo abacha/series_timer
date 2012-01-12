@@ -12,7 +12,7 @@ module SeriesManager
         break if episode.date < Date.today && !next_episode.empty?
         next_episode = episode
       end
-      next_episode.date > Date.today ? next_episode : nil
+      next_episode.date >= Date.today ? next_episode : nil
     end
 
     def get_countdown_next_episode(serie)
