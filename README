@@ -1,2 +1,2 @@
 # Series Timer
-use ruby examples/script.rb
+use: ruby examples/next_episode.rb
