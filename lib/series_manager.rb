@@ -1,11 +1,12 @@
 require_relative 'crawler'
+require 'date'
 
 module SeriesManager
 
   class << self
 
     def get_next_episode(serie)
-      episodes      = Crawler.parse_episodes(serie)
+      episodes      = Crawler.get_episodes(serie)
       next_episode  = episodes.find { |episode| episode.date >= Date.today } 
     end
 
