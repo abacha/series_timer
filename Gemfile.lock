@@ -1,0 +1,9 @@
+GEM
+  specs:
+    yajl-ruby (1.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  yajl-ruby
