@@ -11,8 +11,9 @@ module SeriesManager
 
     def get_countdown_next_episode(serie)
       episode = get_next_episode(serie)
-      return if episode.empty?
-      "S00" + ("e%02d" % episode.number) + " - " + episode.title + episode.date
+      return if episode.nil?
+      "S00" + ("e%02d" % episode.number.to_s) + " - " + episode.title + " - " +
+        episode.date.to_s
     end
 
   end
