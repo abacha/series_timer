@@ -1,4 +1,4 @@
-class Episode < Struct.new(:serie, :number_raw, :title, :date_raw)
+class Episode < Struct.new(:serie, :season, :number_raw, :title, :date_raw)
 
   def date
     @date ||= Date.parse date_raw
@@ -13,4 +13,3 @@ class Episode < Struct.new(:serie, :number_raw, :title, :date_raw)
   end
 
 end
-
