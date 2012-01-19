@@ -32,9 +32,7 @@ module Crawler
       raw = Net::HTTP.get("en.wikipedia.org", 
                           "/wiki/List_of_" + renamed_serie + "_episodes")
       episodes = parse_episodes(serie, raw)
-      File.open(get_cache_file(serie), 'w') do
-        |f| f.write(episodes)
-      end
+      File.open(get_cache_file(serie), 'w') { |f| f.write(episodes) }
       cache(serie)
     end
 
