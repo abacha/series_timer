@@ -39,9 +39,8 @@ module Crawler
     def cache(serie)
       parser = Yajl::Parser.new
       episodes_parsed = parser.parse(File.open(get_cache_file(serie), "r").read)
-      episodes = []
-      episodes_parsed.each do |episode|
-        episodes << Episode.new(serie, *episode)
+      episodes = episodes_parsed.map do |episode|
+        Episode.new(serie, *episode)
       end
       episodes
     end
