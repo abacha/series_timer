@@ -4,6 +4,10 @@ class Episode < Struct.new(:serie, :season, :number_raw, :title, :date_raw)
     @date ||= Date.parse date_raw
   end
 
+  def countdown
+    "#{(date - Date.today).to_i} days"
+  end
+
   def number
     @number ||= number_raw.to_i
   end
