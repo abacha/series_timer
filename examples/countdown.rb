@@ -1,3 +1,4 @@
+require 'bundler/setup'
 require_relative '../lib/series_manager'
 
 puts SeriesManager.get_countdown_next_episode("The Good Wife")
