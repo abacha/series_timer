@@ -1,5 +1,5 @@
 # Series Timer
-usage: ``` ./bin/seriestimr <series names>```
+usage: ````./bin/seriestimr <series names>````
 
 ex:
-```./bin/seriestimr House "The Big Bang Theory" "Dexter"```
+````./bin/seriestimr House "The Big Bang Theory" "Dexter"````
