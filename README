@@ -1,2 +1,5 @@
 # Series Timer
-use: ruby examples/next_episode.rb
+usage: ``` ./bin/seriestimr <series names>```
+
+ex:
+```./bin/seriestimr House "The Big Bang Theory" "Dexter"```
