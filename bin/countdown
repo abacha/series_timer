@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'net/http'
+require 'yajl'
+require 'date'
+
+require_relative '../lib/seriestimr/series_manager'
+
+ARGV.each do |serie|
+  puts SeriesTimr::SeriesManager.get_countdown_next_episode(serie)
+end
