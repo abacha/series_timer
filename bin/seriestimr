@@ -11,4 +11,6 @@ begin
   SeriesTimr::Application.new(ARGV).run
 rescue OptionParser::InvalidOption => err
   abort "seriestimr: #{err.message}\nusage: seriestimr [-lac] [serie1 serie2 ...]"
+rescue SeriesTimr::InvalidSerieException
+  abort "seriestimr: invalid serie"
 end

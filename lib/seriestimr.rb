@@ -1,4 +1,5 @@
 require_relative '../lib/seriestimr/series_manager'
+require_relative '../lib/seriestimr/errors'
 
 module SeriesTimr
   class Application

@@ -24,12 +24,15 @@ module SeriesTimr
         File.join(File.dirname(__FILE__), "../../cache/") + serie + ".cache"
       end
 
+      require "pry"
       def web(serie)
         renamed_serie = serie.gsub(" ", "_")
-        raw = Net::HTTP.get("en.wikipedia.org", 
-                            "/wiki/List_of_" + renamed_serie + "_episodes")
-        episodes = parse_episodes(serie, raw)
-        File.open(get_cache_file(serie), 'w') { |f| f.write(episodes) }
+        uri = URI("http://en.wikipedia.org/wiki/List_of_#{renamed_serie}_episodes")
+        response = Net::HTTP.get_response(uri)
+        raise InvalidSerieException if response.code == "404"
+
+        episodes = parse_episodes(serie, response.body)
+        File.open(get_cache_file(serie), 'w') { |file| file.write(episodes) }
         cache(serie)
       end
 
