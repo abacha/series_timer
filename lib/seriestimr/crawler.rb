@@ -41,7 +41,7 @@ module SeriesTimr
         episodes_parsed.each do |episode|
           season += 1 if !episodes.empty? && 
             episodes.last.number > episode[0].to_i
-          episodes << Episode.new(serie, season.to_i, *episode)
+          episodes << Episode.new(serie, season.to_i, *episode) unless episode[1].empty?
         end
         episodes
       end

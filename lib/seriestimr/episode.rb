@@ -16,6 +16,10 @@ module SeriesTimr
     def empty?
       number_raw.nil?
     end
+  
+    def to_s
+      "[#{serie}] S%02de%02d\t #{title}\t #{date}"  % [ season, number ]
+    end
 
   end
 end
