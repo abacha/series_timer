@@ -24,7 +24,6 @@ module SeriesTimr
         File.join(File.dirname(__FILE__), "../../cache/") + serie + ".cache"
       end
 
-      require "pry"
       def web(serie)
         renamed_serie = serie.gsub(" ", "_")
         uri = URI("http://en.wikipedia.org/wiki/List_of_#{renamed_serie}_episodes")
