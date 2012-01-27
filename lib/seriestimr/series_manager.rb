@@ -16,6 +16,10 @@ module SeriesTimr
         episodes.last
       end
 
+      def all(serie)
+        Crawler.get_episodes(serie)
+      end
+
       private
       def get_next_episode(serie)
         episodes      = Crawler.get_episodes(serie)

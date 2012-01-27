@@ -12,6 +12,7 @@ module SeriesTimr
       parser = OptionParser.new
       parser.on("-c") { params[:episodes] = :countdown }
       parser.on("-l") { params[:episodes] = :last }
+      parser.on("-a") { params[:episodes] = :all }
       series = parser.parse(argv)
       [params, series]
     end
@@ -23,6 +24,8 @@ module SeriesTimr
             puts SeriesManager.last_episode(serie)
           when :countdown
             puts SeriesManager.countdown(serie)
+          when :all
+            puts SeriesManager.all(serie)
           end
       end
     end
