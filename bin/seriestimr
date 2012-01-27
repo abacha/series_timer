@@ -10,5 +10,5 @@ require_relative '../lib/seriestimr'
 begin 
   SeriesTimr::Application.new(ARGV).run
 rescue OptionParser::InvalidOption => err
-  abort "seriestimr: #{err.message}\nusage: seriestimr [-lc] [serie1 serie2 ...]"
+  abort "seriestimr: #{err.message}\nusage: seriestimr [-lac] [serie1 serie2 ...]"
 end
