@@ -7,10 +7,14 @@ require 'date'
 require "optparse"
 require_relative '../lib/series_timer'
 
+instructions = "series_timer: #{err.message}\n"+
+               "usage: series_timer [-lac] [serie1 serie2 ...]"
+
 begin 
+  abort instructions if ARGV.empty?
   SeriesTimer::Application.new(ARGV).run
 rescue OptionParser::InvalidOption => err
-  abort "series_timer: #{err.message}\nusage: series_timer [-lac] [serie1 serie2 ...]"
+  abort instructions
 rescue SeriesTimer::InvalidSerieException
   abort "series_timer: invalid serie"
 end
