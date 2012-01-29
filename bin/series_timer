@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'net/http'
+require 'yajl'
+require 'date'
+require "optparse"
+require_relative '../lib/series_timer'
+
+begin 
+  SeriesTimer::Application.new(ARGV).run
+rescue OptionParser::InvalidOption => err
+  abort "series_timer: #{err.message}\nusage: series_timer [-lac] [serie1 serie2 ...]"
+rescue SeriesTimer::InvalidSerieException
+  abort "series_timer: invalid serie"
+end

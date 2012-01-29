@@ -1,6 +1,6 @@
 require_relative 'episode'
 
-module SeriesTimr
+module SeriesTimer
   module Crawler
     class << self
 
@@ -13,10 +13,8 @@ module SeriesTimr
 
       private
       def parse_episodes(serie, html)
-        episodes      = []
-        html.scan(REGEX_EPISODES) do |episode| 
-          episodes << episode
-        end
+        episode = []
+        html.scan(REGEX_EPISODES) { |episode| episodes << episode }
         episodes
       end
 
@@ -36,10 +34,10 @@ module SeriesTimr
       end
 
       def cache(serie)
-        parser = Yajl::Parser.new
-        episodes_parsed = parser.parse(File.open(get_cache_file(serie), "r").read)
-        season = 1
-        episodes = []
+        episodes_parsed = Yajl::Parser.parse(File.open(get_cache_file(serie), "r").read)
+        season          = 1
+        episodes        = []
+
         episodes_parsed.each do |episode|
           season += 1 if !episodes.empty? && 
             episodes.last.number > episode[0].to_i

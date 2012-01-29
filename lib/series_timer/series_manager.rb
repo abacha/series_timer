@@ -1,6 +1,6 @@
 require_relative 'crawler'
 
-module SeriesTimr
+module SeriesTimer
   module SeriesManager
     class << self
 

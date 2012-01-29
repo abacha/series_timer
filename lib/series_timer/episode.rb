@@ -1,4 +1,4 @@
-module SeriesTimr
+module SeriesTimer
   class Episode < Struct.new(:serie, :season, :number_raw, :title, :date_raw)
 
     def date

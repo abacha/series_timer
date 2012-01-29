@@ -1,7 +1,7 @@
-require_relative '../lib/seriestimr/series_manager'
-require_relative '../lib/seriestimr/errors'
+require_relative '../lib/series_timer/series_manager'
+require_relative '../lib/series_timer/errors'
 
-module SeriesTimr
+module SeriesTimer
   class Application
     
     def initialize(argv)
