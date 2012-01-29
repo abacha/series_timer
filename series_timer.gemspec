@@ -5,8 +5,8 @@ Gem::Specification.new do |s|
   s.authors = ["Adriano Bacha"]
   s.email = ["abacha@gmail.com"]
   s.homepage = "http://github.com/series_timer"
-  s.summary = ""
-  s.description = ""
+  s.summary = "scrapes the list of episodes of any series from wikipedia"
+  s.description = "scrapes the list of episodes of any series from wikipedia"
   s.files = Dir.glob("{bin,lib,cache}/**/*") + %w(README.mbd)
   s.require_path = 'lib'
   s.executables = ["series_timer"]
