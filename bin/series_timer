@@ -10,8 +10,10 @@ require_relative '../lib/series_timer'
 begin 
   raise ArgumentError if ARGV.empty?
   SeriesTimer::Application.new(ARGV).run
-rescue OptionParser::InvalidOption, ArgumentError => err
+rescue OptionParser::InvalidOption => err
   abort "series_timer: #{err.message}\nusage: series_timer [-lac] [series1 series2 ...]"
 rescue SeriesTimer::InvalidSerieException
   abort "series_timer: invalid series"
+rescue ArgumentError
+  abort "series_timer: you need to provide at least one series"
 end
