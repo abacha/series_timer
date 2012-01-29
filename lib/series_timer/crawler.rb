@@ -13,7 +13,7 @@ module SeriesTimer
 
       private
       def parse_episodes(serie, html)
-        episode = []
+        episodes = []
         html.scan(REGEX_EPISODES) { |episode| episodes << episode }
         episodes
       end
@@ -34,7 +34,7 @@ module SeriesTimer
       end
 
       def cache(serie)
-        episodes_parsed = Yajl::Parser.parse(File.open(get_cache_file(serie), "r").read)
+        episodes_parsed = JSON.parse(File.open(get_cache_file(serie), "r").read)
         season          = 1
         episodes        = []
 
