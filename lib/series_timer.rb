@@ -15,6 +15,7 @@ module SeriesTimer
       parser.on("-l") { params[:episodes] = :last }
       parser.on("-a") { params[:episodes] = :all }
       series = parser.parse(argv)
+      raise ArgumentError if series.empty?
       [params, series]
     end
 
