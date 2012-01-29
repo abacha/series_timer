@@ -23,10 +23,10 @@ module SeriesTimer
         case @params[:episodes]
           when :last
             puts SeriesManager.last_episode(serie)
-          when :countdown
-            puts SeriesManager.countdown(serie)
           when :all
             puts SeriesManager.all(serie)
+          else
+            puts SeriesManager.countdown(serie)
           end
       end
     end
