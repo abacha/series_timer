@@ -8,9 +8,10 @@ require "optparse"
 require_relative '../lib/series_timer'
 
 begin 
+  raise ArgumentError if ARGV.empty?
   SeriesTimer::Application.new(ARGV).run
-rescue OptionParser::InvalidOption => err
-  abort "series_timer: #{err.message}\nusage: series_timer [-lac] [serie1 serie2 ...]"
+rescue OptionParser::InvalidOption, ArgumentError => err
+  abort "series_timer: #{err.message}\nusage: series_timer [-lac] [series1 series2 ...]"
 rescue SeriesTimer::InvalidSerieException
-  abort "series_timer: invalid serie"
+  abort "series_timer: invalid series"
 end
