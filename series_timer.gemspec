@@ -9,10 +9,10 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/series_timer"
   s.summary = "scrapes the list of episodes of any series from wikipedia"
   s.description = "scrapes the list of episodes of any series from wikipedia"
-  s.files = Dir.glob("{bin,lib,cache}/**/*") + %w(README.mbd)
+  s.files = Dir.glob("{bin,lib,cache}/**/*") + %w(README.md)
   s.require_path = 'lib'
   s.executables = ["series_timer"]
-  s.required_ruby_version = ">= 1,.9.2"
+  s.required_ruby_version = ">= 1.9.2"
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project = "series_timer"
 end

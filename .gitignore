@@ -13,5 +13,6 @@ capybara-*.html
 /coverage/
 /spec/tmp/*
 **.orig
+*.gem
 rerun.txt
 pickle-email-*.html
