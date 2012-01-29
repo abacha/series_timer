@@ -1,6 +1,6 @@
 # Series Timer
 
-scrapes wikipedia list of episodes for any series (i.e. http://en.wikipedia.org/wiki/List_of_House_episodes)
+scrapes the list of episodes of any series from wikipedia (i.e. http://en.wikipedia.org/wiki/List_of_House_episodes)
 
 # Usage
 
