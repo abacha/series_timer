@@ -1,6 +1,8 @@
+require "#{File.dirname(__FILE__)}/lib/series_timer/version"
+
 Gem::Specification.new do |s|
   s.name    = "Series Timer"
-  s.version = "0.1"
+  s.version = SeriesTimer::VERSION
   s.platform = Gem::Platform::RUBY
   s.authors = ["Adriano Bacha"]
   s.email = ["abacha@gmail.com"]
