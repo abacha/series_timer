@@ -2,7 +2,10 @@
 
 scrapes the list of episodes of any series from wikipedia (i.e. http://en.wikipedia.org/wiki/List_of_House_episodes)
 
-# Usage
+## Download
+https://rubygems.org/gems/series_timer
+
+## Usage
 
 ````./bin/seriestimr -[lac] <series names>````
 
