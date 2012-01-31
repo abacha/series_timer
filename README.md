@@ -59,7 +59,7 @@ ex:
 
 ## Authorship
 
-Written by [Adriano Bacha](http://github.com/abacha) for Mendicant University's [University-Web](https://github.com/mendicant-university/university-web).
+Written by [Adriano Bacha](http://github.com/abacha) for Mendicant University's January 2012 core skills course.
 
 ## License
 
