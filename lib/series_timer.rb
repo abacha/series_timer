@@ -1,3 +1,8 @@
+require 'bundler/setup'
+require 'net/http'
+require 'json'
+require 'date'
+require "optparse"
 require_relative '../lib/series_timer/series_manager'
 require_relative '../lib/series_timer/errors'
 
