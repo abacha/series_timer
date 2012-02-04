@@ -2,7 +2,10 @@
 
 scrapes the list of episodes of any series from wikipedia (i.e. http://en.wikipedia.org/wiki/List_of_House_episodes)
 
-# Usage
+## Download
+https://rubygems.org/gems/series_timer
+
+## Usage
 
 ````./bin/seriestimr -[lac] <series names>````
 
@@ -56,7 +59,7 @@ ex:
 
 ## Authorship
 
-Written by [Adriano Bacha](http://github.com/abacha) for Mendicant University's [University-Web](https://github.com/mendicant-university/university-web).
+Written by [Adriano Bacha](http://github.com/abacha) for Mendicant University's January 2012 core skills course.
 
 ## License
 
