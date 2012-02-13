@@ -24,8 +24,8 @@ ex:
 
 ````
 ./bin/series_timer -c "The Mentalist" Californication
-[The Mentalist] S05e13   Red is the New Black	 2012-02-02 (4 days)
-[Californication] S05e04	 Waiting for the Miracle	 2012-01-29 (0 days)
+[The Mentalist] S04e15   War of the Roses	 2012-02-16 (3 days)
+[Californication] S05e07	 Here I Go Again	 2012-02-19 (6 days)
 ````
 
 
@@ -33,7 +33,7 @@ ex:
 
 ````
 ./bin/series_timer -l House Dexter
-[House] S09e09   Better Half	 2012-01-23
+[House] S08e09   Better Half	 2012-01-23
 [Dexter] S06e12	 This Is the Way the World Ends	 2011-12-18
 ````
 
@@ -51,7 +51,6 @@ ex:
 [Game of Thrones] S01e08	 The Pointy End	 2011-06-05
 [Game of Thrones] S01e09	 Baelor	 2011-06-12
 [Game of Thrones] S01e10	 Fire and Blood	 2011-06-19
-[Game of Thrones] S10e09	 Blackwater	 2012-05-27
 ````
 
 
