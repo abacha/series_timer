@@ -1,11 +1,12 @@
 require_relative 'episode'
+require 'pry'
 
 module SeriesTimer
   module Crawler
     class << self
 
       REGEX_EPISODES = 
-        Regexp.new(/<td>(\d+)<\/td>.*?<td class="summary" [^>]+>(?:"<b>)?(?:<a [^>]+>)?([\w\s]*)(?:<\/a>)?(?:<\/b>")?.*?<span[^>]+>([0-9-]+)<\/span>/m)
+        Regexp.new(/<td>(\d+)<\/td>[^<]+<td class="summary" [^>]+>(?:"<b>)?(?:<a [^>]+>)?([\w\s]*)(?:<\/a>)?(?:<\/b>")?.*?<span[^>]+>([0-9-]+)<\/span>/m)
 
       def get_episodes(serie)
         File.exists?(get_cache_file(serie)) ? cache(serie) : web(serie)
