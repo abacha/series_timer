@@ -5,8 +5,9 @@ module SeriesTimer
       @date ||= Date.parse date_raw
     end
 
-    def countdown
-      "#{(date - Date.today).to_i} days"
+    def diffdays
+      days = (date - Date.today).to_i
+      "#{days.abs} days#{days < 0 ? ' ago':''}"
     end
 
     def number

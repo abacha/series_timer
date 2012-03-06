@@ -7,13 +7,13 @@ module SeriesTimer
       def countdown(serie)
         episode = get_next_episode(serie)
         return if episode.nil?
-        "#{episode.to_s} (#{episode.countdown})"
+        "#{episode.to_s} (#{episode.diffdays})"
       end
 
       def last_episode(serie)
         episodes      = Crawler.get_episodes(serie)
-        episodes.reject! { |episode| episode.date >= Date.today } 
-        episodes.last
+        episode = episodes.reject! { |episode| episode.date >= Date.today }.last
+        "#{episode.to_s} (#{episode.diffdays})"
       end
 
       def all(serie)
