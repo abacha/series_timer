@@ -17,7 +17,7 @@ module SeriesTimer
       end
 
       def all(serie)
-        Crawler.get_episodes(serie)
+        episodes = Crawler.get_episodes(serie).map(&:to_s) 
       end
 
       private
