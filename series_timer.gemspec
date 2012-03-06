@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.authors = ["Adriano Bacha"]
   s.email = ["abacha@gmail.com"]
-  s.homepage = "http://github.com/series_timer"
+  s.homepage = "http://github.com/abacha/series_timer"
   s.summary = "scrapes the list of episodes of any series from wikipedia"
   s.description = "scrapes the list of episodes of any series from wikipedia"
   s.files = Dir.glob("{bin,lib,cache}/**/*") + %w(README.md)

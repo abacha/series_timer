@@ -20,7 +20,7 @@ module SeriesTimer
       end
 
       def get_cache_file(serie)
-        File.join(File.dirname(__FILE__), "../../cache/") + serie + ".cache"
+        "#{File.join(File.dirname(__FILE__), '../../cache/')}#{serie}.cache"
       end
 
       def web(serie)
@@ -42,7 +42,9 @@ module SeriesTimer
         episodes_parsed.each do |episode|
           season += 1 if !episodes.empty? && 
             episodes.last.number > episode[0].to_i
-          episodes << Episode.new(serie, season.to_i, *episode) unless episode[1].empty?
+          unless episode[1].empty?
+            episodes << Episode.new(serie, season.to_i, *episode) 
+          end
         end
         episodes
       end
