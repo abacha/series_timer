@@ -1,5 +1,4 @@
 require_relative 'episode'
-require 'pry'
 
 module SeriesTimer
   module Crawler
