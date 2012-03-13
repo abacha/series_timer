@@ -4,7 +4,7 @@ module SeriesTimer
   module SeriesManager
     class << self
 
-      def countdown(serie)
+      def next_episode(serie)
         episode = get_next_episode(serie)
         return if episode.nil?
         episode.to_s
@@ -17,7 +17,7 @@ module SeriesTimer
         episodes.last.to_s
       end
 
-      def all(serie)
+      def all_episodes(serie)
         episodes = Crawler.get_episodes(serie).map(&:to_s) 
       end
 

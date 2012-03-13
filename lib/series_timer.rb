@@ -16,7 +16,7 @@ module SeriesTimer
     def parse_options(argv)
       params = {}
       parser = OptionParser.new
-      parser.on("-c") { params[:episodes] = :countdown }
+      parser.on("-n") { params[:episodes] = :next }
       parser.on("-l") { params[:episodes] = :last }
       parser.on("-a") { params[:episodes] = :all }
       series = parser.parse(argv)
