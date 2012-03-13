@@ -17,3 +17,4 @@ capybara-*.html
 *.gem
 rerun.txt
 pickle-email-*.html
+Guardfile
