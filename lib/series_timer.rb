@@ -28,11 +28,11 @@ module SeriesTimer
       @series.each do |serie|
         case @params[:episodes]
           when :last
-            SeriesManager.last_episode(serie)
+            puts SeriesManager.last_episode(serie)
           when :all
-            SeriesManager.all_episodes(serie)
+            puts SeriesManager.all_episodes(serie)
           else
-            SeriesManager.next_episode(serie)
+            puts SeriesManager.next_episode(serie)
           end
       end
     end
