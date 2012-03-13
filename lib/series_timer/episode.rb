@@ -19,7 +19,7 @@ module SeriesTimer
     end
   
     def to_s
-      "[#{serie}] S%02de%02d\t #{title}\t #{date} (#{diffdays})"  % [ season, number ]
+      "[#{serie}] S%02dE%02d\t #{title}\t #{date} (#{diffdays})"  % [ season, number ]
     end
 
   end

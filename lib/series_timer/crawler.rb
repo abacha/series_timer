@@ -6,6 +6,7 @@ module SeriesTimer
 
       REGEX_EPISODES = 
         Regexp.new(/<td>(\d+)<\/td>[^<]+<td class="summary" [^>]+>(?:"<b>)?(?:<a [^>]+>)?([\w\s]*)(?:<\/a>)?(?:<\/b>")?.*?<span[^>]+>([0-9-]+)<\/span>/m)
+      CACHE_DIR = File.join(File.dirname(__FILE__), '../../cache/')
 
       def get_episodes(serie)
         File.exists?(get_cache_file(serie)) ? cache(serie) : web(serie)
@@ -19,12 +20,13 @@ module SeriesTimer
       end
 
       def get_cache_file(serie)
-        "#{File.join(File.dirname(__FILE__), '../../cache/')}#{serie}.cache"
+        "#{CACHE_DIR}#{serie}.cache"
       end
 
       def web(serie)
         renamed_serie = serie.gsub(" ", "_")
-        uri = URI("http://en.wikipedia.org/wiki/List_of_#{renamed_serie}_episodes")
+        uri =
+          URI("http://en.wikipedia.org/wiki/List_of_#{renamed_serie}_episodes")
         response = Net::HTTP.get_response(uri)
         raise InvalidSerieException if response.code == "404"
 
