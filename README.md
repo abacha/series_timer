@@ -35,7 +35,7 @@ ex:
 
 ````
 ./bin/series_timer -l House Dexter
-[House] S09e09   Better Half	 2012-01-23
+[House] S08e09   Better Half	 2012-01-23
 [Dexter] S06e12	 This Is the Way the World Ends	 2011-12-18
 ````
 
@@ -53,7 +53,6 @@ ex:
 [Game of Thrones] S01e08	 The Pointy End	 2011-06-05
 [Game of Thrones] S01e09	 Baelor	 2011-06-12
 [Game of Thrones] S01e10	 Fire and Blood	 2011-06-19
-[Game of Thrones] S10e09	 Blackwater	 2012-05-27
 ````
 
 
