@@ -7,7 +7,7 @@ https://rubygems.org/gems/series_timer
 
 ## Usage
 
-````./bin/seriestimr -[lac] <series names>````
+````./bin/seriestimr -[lanf] <series names>````
 
 - -l = last episode on air
 
@@ -15,8 +15,10 @@ https://rubygems.org/gems/series_timer
 
 - -n = next episode
 
+- -f = force a cache update
+
 ex:
-````./bin/seriestimr -n House "The Big Bang Theory" "Dexter"````
+````./bin/seriestimr -nf House "The Big Bang Theory" "Dexter"````
 
 
 

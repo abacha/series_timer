@@ -8,8 +8,12 @@ module SeriesTimer
         Regexp.new(/<td>(\d+)<\/td>[^<]+<td class="summary" [^>]+>(?:"<b>)?(?:<a [^>]+>)?([\w\s]*)(?:<\/a>)?(?:<\/b>")?.*?<span[^>]+>([0-9-]+)<\/span>/m)
       CACHE_DIR = File.join(File.dirname(__FILE__), '../../cache/')
 
-      def get_episodes(serie)
-        File.exists?(get_cache_file(serie)) ? cache(serie) : web(serie)
+      def get_episodes(serie, options)
+        if options == :force
+          web(serie)
+        else
+          File.exists?(get_cache_file(serie)) ? cache(serie) : web(serie)
+        end
       end
 
       private
