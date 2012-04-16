@@ -13,17 +13,17 @@ https://rubygems.org/gems/series_timer
 
 - -a = list all episodes
 
-- -c = countdown to the next episode
+- -n = next episode
 
 ex:
-````./bin/seriestimr -c House "The Big Bang Theory" "Dexter"````
+````./bin/seriestimr -n House "The Big Bang Theory" "Dexter"````
 
 
 
-## Countdown
+## Next episode
 
 ````
-./bin/series_timer -c "The Mentalist" Californication
+./bin/series_timer -n "The Mentalist" Californication
 [The Mentalist] S05e13   Red is the New Black	 2012-02-02 (4 days)
 [Californication] S05e04	 Waiting for the Miracle	 2012-01-29 (0 days)
 ````
