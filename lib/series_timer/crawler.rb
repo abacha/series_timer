@@ -18,9 +18,7 @@ module SeriesTimer
 
       private
       def parse_episodes(serie, html)
-        episodes = []
-        html.scan(REGEX_EPISODES) { |episode| episodes << episode }
-        episodes
+        html.scan(REGEX_EPISODES)
       end
 
       def get_cache_file(serie)
