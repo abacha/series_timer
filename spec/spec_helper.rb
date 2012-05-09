@@ -24,3 +24,6 @@ THE_4400_HTML =
   File.read("#{File.dirname(__FILE__)}/fixtures/The_4400.html")
 THE_4400_CACHE =
   File.read("#{File.dirname(__FILE__)}/fixtures/The_4400.cache")
+
+THE_WALKING_DEAD_HTML =
+  File.read("#{File.dirname(__FILE__)}/fixtures/The_Walking_Dead.html")
