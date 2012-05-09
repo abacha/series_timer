@@ -1,4 +1,5 @@
 require_relative 'episode'
+require 'nokogiri'
 
 module SeriesTimer
   module Crawler
@@ -17,7 +18,23 @@ module SeriesTimer
 
       private
       def parse_episodes(serie, html)
-        html.scan(REGEX_EPISODES)
+        # html.scan(REGEX_EPISODES)
+
+        doc = Nokogiri::HTML(html)
+
+        seasons = doc.css("h2 span.mw-headline").map { |h| h.text }
+        seasons = seasons.select { |s| !s.scan(/Season \d/).empty? }
+        seasons.map! {|s| s.scan(/Season \d/)[0] }
+
+        episodes = doc.css("tr.vevent")
+        episodes.map do |episode|
+          tds = episode.css("td")
+          number_in_series = tds[0].text
+          number_in_season = tds[1].text
+          name = tds[2].text
+          date = episode.css("td span span.published").first.text
+          [number_in_season, name, date]
+        end.compact
       end
 
       def get_cache_file(serie)
