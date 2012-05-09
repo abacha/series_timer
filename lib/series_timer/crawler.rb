@@ -1,10 +1,11 @@
 require_relative 'episode'
+require_relative 'parser/nokogiri'
+require_relative 'parser/regex'
 
 module SeriesTimer
   module Crawler
     class << self
 
-      REGEX_EPISODES = /<td>(\d+)<\/td>[^<]+<td[^>]+>"(?:<b><a[^>]+>|<b>|<a[^>]+>)?([^<]*)(?:<\/a><\/b>|<\/b>|<\/a>)?".*?<span[^>]+>([0-9-]+)<\/span>/m
       CACHE_DIR = File.join(File.dirname(__FILE__), '../../cache/')
 
       def get_episodes(serie, options)
@@ -16,8 +17,12 @@ module SeriesTimer
       end
 
       private
-      def parse_episodes(serie, html)
-        html.scan(REGEX_EPISODES)
+      def parse_episodes(html)
+        begin
+          Parser::Nokogiri.parse(html)
+        rescue StandardError => error
+          Parser::Regex.parse(html)
+        end
       end
 
       def get_cache_file(serie)
@@ -31,7 +36,7 @@ module SeriesTimer
         response = Net::HTTP.get_response(uri)
         raise InvalidSerieException if response.code == "404"
 
-        episodes = parse_episodes(serie, response.body)
+        episodes = parse_episodes(response.body)
         File.write(get_cache_file(serie), episodes)
         cache(serie)
       end

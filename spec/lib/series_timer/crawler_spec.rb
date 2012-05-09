@@ -17,7 +17,7 @@ describe SeriesTimer::Crawler do
   end
 
   it "should parse episodes" do
-    subject.send(:parse_episodes, "The 4400", THE_4400_HTML).should
+    subject.send(:parse_episodes, THE_4400_HTML).should
       have(40).things
   end
 

@@ -15,4 +15,5 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 1.9.2"
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project = "series_timer"
+  s.add_dependency 'nokogiri', '~> 1.5.0'
 end
