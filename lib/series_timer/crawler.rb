@@ -1,11 +1,11 @@
 require_relative 'episode'
-require 'nokogiri'
+require_relative 'parser/nokogiri'
+require_relative 'parser/regex'
 
 module SeriesTimer
   module Crawler
     class << self
 
-      REGEX_EPISODES = /<td>(\d+)<\/td>[^<]+<td[^>]+>"(?:<b><a[^>]+>|<b>)([^<]*)(?:<\/a><\/b>|<\/b>)".*?<span[^>]+>([0-9-]+)<\/span>/m
       CACHE_DIR = File.join(File.dirname(__FILE__), '../../cache/')
 
       def get_episodes(serie, options)
@@ -17,24 +17,12 @@ module SeriesTimer
       end
 
       private
-      def parse_episodes(serie, html)
-        # html.scan(REGEX_EPISODES)
-
-        doc = Nokogiri::HTML(html)
-
-        seasons = doc.css("h2 span.mw-headline").map { |h| h.text }
-        seasons = seasons.select { |s| !s.scan(/Season \d/).empty? }
-        seasons.map! {|s| s.scan(/Season \d/)[0] }
-
-        episodes = doc.css("tr.vevent")
-        episodes.map do |episode|
-          tds = episode.css("td")
-          number_in_series = tds[0].text
-          number_in_season = tds[1].text
-          name = tds[2].text
-          date = episode.css("td span span.published").first.text
-          [number_in_season, name, date]
-        end.compact
+      def parse_episodes(html)
+        begin
+          Parser::Nokogiri.parse(html)
+        rescue
+          Parser::Regex.parse(html)
+        end
       end
 
       def get_cache_file(serie)
@@ -48,7 +36,7 @@ module SeriesTimer
         response = Net::HTTP.get_response(uri)
         raise InvalidSerieException if response.code == "404"
 
-        episodes = parse_episodes(serie, response.body)
+        episodes = parse_episodes(response.body)
         File.open(get_cache_file(serie), 'w') { |file| file.write(episodes) }
         cache(serie)
       end
