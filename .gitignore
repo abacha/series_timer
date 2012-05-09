@@ -1,6 +1,6 @@
 Gemfile.lock
 *.rbc
-*.cache
+cache/*.cache
 *.sassc
 .sass-cache
 capybara-*.html
