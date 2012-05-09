@@ -48,6 +48,7 @@ module SeriesTimer
             episodes << Episode.new(serie, season.to_i, *episode) 
           end
         end
+        raise NoEpisodesFoundException if episodes.empty?
         episodes
       end
 

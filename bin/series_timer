@@ -9,6 +9,8 @@ rescue OptionParser::InvalidOption => err
   abort "series_timer: #{err.message}\n#{usage}"
 rescue SeriesTimer::InvalidSerieException
   abort "series_timer: invalid series"
+rescue SeriesTimer::NoEpisodesFoundException
+  abort "series_timer: no episodes found"
 rescue ArgumentError
   abort "series_timer: you need to provide at least one series\n#{usage}"
 end
