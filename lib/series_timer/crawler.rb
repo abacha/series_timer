@@ -20,7 +20,7 @@ module SeriesTimer
       def parse_episodes(html)
         begin
           Parser::Nokogiri.parse(html)
-        rescue
+        rescue StandardError => error
           Parser::Regex.parse(html)
         end
       end
