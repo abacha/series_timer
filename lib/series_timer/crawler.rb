@@ -4,8 +4,7 @@ module SeriesTimer
   module Crawler
     class << self
 
-      REGEX_EPISODES = 
-        Regexp.new(/<td>(\d+)<\/td>[^<]+<td class="summary" [^>]+>(?:"<b>)?(?:<a [^>]+>)?([^<]*)(?:<\/a>)?(?:<\/b>")?.*?<span[^>]+>([0-9-]+)<\/span>/m)
+      REGEX_EPISODES = /<td>(\d+)<\/td>[^<]+<td[^>]+>"(?:<b><a[^>]+>|<b>)([^<]*)(?:<\/a><\/b>|<\/b>)".*?<span[^>]+>([0-9-]+)<\/span>/m
       CACHE_DIR = File.join(File.dirname(__FILE__), '../../cache/')
 
       def get_episodes(serie, options)
