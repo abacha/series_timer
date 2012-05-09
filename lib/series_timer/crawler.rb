@@ -32,12 +32,12 @@ module SeriesTimer
         raise InvalidSerieException if response.code == "404"
 
         episodes = parse_episodes(serie, response.body)
-        File.open(get_cache_file(serie), 'w') { |file| file.write(episodes) }
+        File.write(get_cache_file(serie), episodes)
         cache(serie)
       end
 
       def cache(serie)
-        episodes_parsed = JSON.parse(File.open(get_cache_file(serie), "r").read)
+        episodes_parsed = JSON.parse(File.read(get_cache_file(serie)))
         season          = 1
         episodes        = []
 
