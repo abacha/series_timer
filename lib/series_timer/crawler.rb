@@ -36,24 +36,16 @@ module SeriesTimer
         raise InvalidSerieException if response.code == "404"
 
         episodes = parse_episodes(response.body)
+        raise NoEpisodesFoundException if episodes.empty?
         File.write(get_cache_file(serie), episodes)
         cache(serie)
       end
 
       def cache(serie)
-        episodes_parsed = JSON.parse(File.read(get_cache_file(serie)))
-        season          = 1
-        episodes        = []
-
-        episodes_parsed.each do |episode|
-          season += 1 if !episodes.empty? && 
-            episodes.last.number > episode[0].to_i
-          unless episode[1].empty?
-            episodes << Episode.new(serie, season.to_i, *episode) 
-          end
+        episodes = JSON.parse(File.read(get_cache_file(serie)))
+        episodes.map do |episode|
+          Episode.new(serie, *episode)
         end
-        raise NoEpisodesFoundException if episodes.empty?
-        episodes
       end
     end
   end
