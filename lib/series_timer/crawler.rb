@@ -5,7 +5,6 @@ require_relative 'parser/regex'
 module SeriesTimer
   module Crawler
     class << self
-
       CACHE_DIR = File.join(File.dirname(__FILE__), '../../cache/')
 
       def get_episodes(serie, options)
@@ -56,7 +55,6 @@ module SeriesTimer
         raise NoEpisodesFoundException if episodes.empty?
         episodes
       end
-
     end
   end
 end

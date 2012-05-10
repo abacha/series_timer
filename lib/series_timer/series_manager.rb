@@ -3,7 +3,6 @@ require_relative 'crawler'
 module SeriesTimer
   module SeriesManager
     class << self
-
       def next_episode(serie, options)
         episode = get_next_episode(serie, options)
         return if episode.nil?
@@ -26,7 +25,6 @@ module SeriesTimer
         episodes      = Crawler.get_episodes(serie, options)
         next_episode  = episodes.find { |episode| episode.date >= Date.today } 
       end
-
     end
   end
 end

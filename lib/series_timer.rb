@@ -8,7 +8,6 @@ require_relative '../lib/series_timer/errors'
 
 module SeriesTimer
   class Application
-    
     def initialize(argv)
       @params, @series = parse_options(argv)
     end
@@ -37,7 +36,6 @@ module SeriesTimer
           end
       end
     end
-
   end
 end
 

@@ -2,7 +2,6 @@ require 'spec_helper'
 require 'series_timer'
 
 describe SeriesTimer::SeriesManager do
-
   before(:each) do
     Date.stub!(:today).and_return(Date.new(2012, 03, 12))
   end

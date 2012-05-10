@@ -1,6 +1,5 @@
 module SeriesTimer
   class Episode < Struct.new(:serie, :season, :number_raw, :title, :date_raw)
-
     def date
       @date ||= Date.parse date_raw
     end
@@ -21,6 +20,5 @@ module SeriesTimer
     def to_s
       "[#{serie}] S%02dE%02d\t #{title}\t #{date} (#{diffdays})"  % [ season, number ]
     end
-
   end
 end
