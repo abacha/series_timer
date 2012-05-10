@@ -3,15 +3,4 @@
 require "bundler/setup"
 require "series_timer"
 
-usage = "usage: series_timer [-lan] [series1 series2 ...]"
-begin 
-  SeriesTimer::Application.run
-rescue OptionParser::InvalidOption => err
-  abort "series_timer: #{err.message}\n#{usage}"
-rescue SeriesTimer::InvalidSerieException
-  abort "series_timer: invalid series"
-rescue SeriesTimer::NoEpisodesFoundException
-  abort "series_timer: no episodes found"
-rescue ArgumentError
-  abort "series_timer: you need to provide at least one series\n#{usage}"
-end
+SeriesTimer::Application.run

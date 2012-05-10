@@ -1,30 +1,51 @@
 module SeriesTimer
   module Application
 
-    def self.parse_options(argv)
-      params = {}
-      parser = OptionParser.new
-      parser.on("-f") { params[:options] = :force }
-      parser.on("-n") { params[:episodes] = :next }
-      parser.on("-l") { params[:episodes] = :last }
-      parser.on("-a") { params[:episodes] = :all }
-      series = parser.parse(argv)
-      raise ArgumentError if series.empty?
-      [params, series]
-    end
+    class << self
 
-    def self.run(argv=ARGV)
-      params, series = parse_options(argv)
-      series.each do |serie|
-        case params[:episodes]
-          when :last
-            puts SeriesManager.last_episode(serie, params[:options])
-          when :all
-            puts SeriesManager.all_episodes(serie, params[:options])
-          else
-            puts SeriesManager.next_episode(serie, params[:options])
-          end
+      USAGE = "usage: series_timer [-lan] [series1 series2 ...]"
+
+      def run(argv=ARGV)
+        parse_options(argv)
+        SeriesManager.process(@series, @options)
+      rescue SeriesTimer::InvalidSerieException
+        abort_message "invalid series"
+      rescue SeriesTimer::NoEpisodesFoundException
+        abort_message "no episodes found"
       end
+
+      private
+      def abort_message(*args)
+        abort "series_timer: #{args.join("\n")}"
+      end
+
+      def parser
+        parser = OptionParser.new
+        parser.on("-h") do
+          puts USAGE
+          exit
+        end
+        parser.on("-v") do
+          puts VERSION
+          exit
+        end
+        parser.on("-f") { @options[:options] = :force }
+        parser.on("-n") { @options[:episodes] = :next }
+        parser.on("-l") { @options[:episodes] = :last }
+        parser.on("-a") { @options[:episodes] = :all }
+        parser
+      end
+
+      def parse_options(argv)
+        @options = {}
+        @series = parser.parse(argv)
+        raise ArgumentError if @series.empty?
+      rescue OptionParser::InvalidOption => error
+        abort_message error.message, USAGE
+      rescue ArgumentError
+        abort_message "you need to provide at least one series", USAGE
+      end
+
     end
 
   end
