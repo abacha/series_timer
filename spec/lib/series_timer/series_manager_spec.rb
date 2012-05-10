@@ -11,7 +11,7 @@ describe SeriesTimer::SeriesManager do
       "#{File.join(File.dirname(__FILE__), '../../fixtures/')}The_4400.cache")
     stub_request(:get, "http://en.wikipedia.org/wiki/List_of_The_4400_episodes").
       to_return(:status => 200, :body => THE_4400_HTML)
-    subject.all_episodes("The 4400", []).should have(40).things
+    subject.all_episodes("The 4400", []).should have(42).things
   end
 
   it "should get the next episode" do
