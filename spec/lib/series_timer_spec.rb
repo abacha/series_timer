@@ -6,26 +6,26 @@ module SeriesTimer
 
     it "should call next episode" do
       SeriesManager.stub!(:next_episode).with("House", nil)
-      Application.new(["-n", "House"]).run
+      Application.run(["-n", "House"])
     end
 
     it "should call last episode" do
       SeriesManager.stub!(:last_episode).with("House", nil)
-      Application.new(["-l", "House"]).run
+      Application.run(["-l", "House"])
     end
 
     it "should call all episodes" do
       SeriesManager.stub!(:all_episodes).with("House", nil)
-      Application.new(["-a", "House"]).run
+      Application.run(["-a", "House"])
     end
 
     it "should force an cache update" do
       SeriesManager.stub(:next_episode).with("House", :force)
-      Application.new(["-n", "House", "-f"]).run
+      Application.run(["-n", "House", "-f"])
     end
 
     it "should raise an argument error" do
-      lambda { Application.new("-l") }.should raise_error(ArgumentError)
+      lambda { Application.run("-l") }
     end
 
   end

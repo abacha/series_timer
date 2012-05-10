@@ -1,10 +1,11 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/series_timer'
+require "bundler/setup"
+require "series_timer"
 
 usage = "usage: series_timer [-lan] [series1 series2 ...]"
 begin 
-  SeriesTimer::Application.new(ARGV).run
+  SeriesTimer::Application.run
 rescue OptionParser::InvalidOption => err
   abort "series_timer: #{err.message}\n#{usage}"
 rescue SeriesTimer::InvalidSerieException
