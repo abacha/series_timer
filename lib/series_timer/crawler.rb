@@ -1,7 +1,3 @@
-require_relative 'episode'
-require_relative 'parser/nokogiri'
-require_relative 'parser/regex'
-
 module SeriesTimer
   module Crawler
     class << self

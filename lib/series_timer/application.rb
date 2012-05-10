@@ -1,6 +1,3 @@
-require "series_timer/series_manager"
-require "series_timer/errors"
-
 module SeriesTimer
   module Application
 

@@ -1,5 +1,4 @@
 require 'nokogiri'
-require 'pry'
 
 module SeriesTimer
   module Parser
