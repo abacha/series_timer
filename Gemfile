@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'nokogiri'
+gemspec
 
 group :development, :test do
   gem 'awesome_print'
